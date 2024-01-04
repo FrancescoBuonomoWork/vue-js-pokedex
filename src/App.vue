@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     defaultApi(){
-      axios.get('https://pokeapi.co/api/v2/pokemon/') //?offset=40&limit=20
+      axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1024') //
       .then((res)=> {
         console.log(res.data.results)
         this.store.pokemonList = res.data.results
