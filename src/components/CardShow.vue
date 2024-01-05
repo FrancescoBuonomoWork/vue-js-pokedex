@@ -13,7 +13,7 @@ import { store } from '../store';
     data() {
         return {
           store,
-        //   types : this.item.types,
+        
         
     }
 },
@@ -35,7 +35,11 @@ computed:{
             <ul>
                 <li v-for="st in item.stats">{{st.stat.name }} = {{ st.base_stat }}</li>
             </ul> -->
-   
+
+            <!-- DOMANDA -->
+            <!-- questo modo dell immagine non funziona quando la pagina viene ricaricata  -->
+            <!-- <img :src=item.sprites.front_shiny alt="" > -->
+
             <div class="card">
                 <div class="card-header">
                     <p >#{{ item.id }}</p>

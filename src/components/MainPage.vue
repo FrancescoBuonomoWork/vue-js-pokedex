@@ -26,7 +26,7 @@ import CardShow from './CardShow.vue';
 
                 <ul class="grid" v-if="store.searchVal === ''">
                    
-                        <li class="card"  v-for="(pok,i) in store.pokemonList">
+                        <li class="card-default"  v-for="(pok,i) in store.pokemonList">
                             <h1>{{ pok.name }}</h1>
                             <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i+1}.png`" alt="">
                         </li>
@@ -59,10 +59,13 @@ import CardShow from './CardShow.vue';
 
 <style lang="scss" scoped>
 
-.card{
+.card-default{
     border: 2px solid black;
     border-radius: 20px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     
 }
 </style>

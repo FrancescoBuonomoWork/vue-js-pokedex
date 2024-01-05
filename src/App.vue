@@ -14,12 +14,25 @@ export default {
   data() {
     return {
       store,
+      // n :{
+      //   offset:0,
+      //   limit:0,
+      // }
+      offset:0,
+      limit:0,
       
     }
   },
   methods: {
+    // defaultApi(){
+    //   axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1024') //
+    //   .then((res)=> {
+    //     console.log(res.data.results)
+    //     this.store.pokemonList = res.data.results
+    //   })
+    // },
     defaultApi(){
-      axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1024') //
+      axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${this.offset}&limit=${this.limit}`) //
       .then((res)=> {
         console.log(res.data.results)
         this.store.pokemonList = res.data.results
@@ -34,10 +47,27 @@ export default {
       })
       
     },
+    setGen(){
+     if('Kanto'=== this.store.selectedRegion){
+      this.offset = 0;
+      this.limit = 150;
+     
+      
+    } else if ('Johto' === this.store.selectedRegion){
+      this.offset = 151;
+      this.limit = 251
+    }
+    else if ('Hoenn' === this.store.selectedRegion){
+      this.offset = 252;
+      this.limit = 386
+    } 
+    console.log(this.offset, this.limit,this.store.selectedRegion)
+    }
 
   },
   created(){
-      this.defaultApi()
+    this.defaultApi()
+    
     
   },
   computed:{
@@ -49,10 +79,7 @@ export default {
 </script>
 
 <template>
-  <HeaderPage @perform-search="searchApi" @spriteSearch="spritesAPI"/>
-  <!-- <img src="{{ sprite }}" alt=""> -->
-  <!-- <img :src="sprite" alt=""> -->
-  
+  <HeaderPage @perform-search="searchApi" @setRegion="setGen"/> 
   <MainPage/>
 </template>
 
