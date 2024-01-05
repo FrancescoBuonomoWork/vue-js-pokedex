@@ -1,49 +1,49 @@
 <script>
 import { store } from '../store';
 import CardShow from './CardShow.vue';
-    export default {
+export default {
     components: {
         CardShow,
-      
+
     },
     data() {
         return {
-          store
+            store
 
         }
     },
     methods: {
-       
+
     }
 }
 </script>
 
 <template>
-
     <section class="main-sec">
         <div class="container">
-            
 
-                <ul class="grid" v-if="store.searchVal === ''">
-                   
-                        <li class="card-default"  v-for="(pok,i) in store.pokemonList">
-                            <h1>{{ pok.name }}</h1>
-                            <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i+1}.png`" alt="">
-                        </li>
-                   <!-- utilizzo indice + 1 per recuperare l id del pokemon  -->
-                </ul>
+
+            <ul class="grid" v-if="store.searchVal === ''">
+
+                <li class="card-default" v-for="(pok, i) in store.pokemonList">
+                    <h1>{{ pok.name }}</h1>
+                    <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i + 1}.png`"
+                        alt="">
+                </li>
+                <!-- utilizzo indice + 1 per recuperare l id del pokemon  -->
+            </ul>
             <div v-else class="card-container">
-                <CardShow  :item="store.pokemon"/>
+                <CardShow :item="store.pokemon" />
             </div>
-                
-            
-            
-            
+
+
+
+
         </div>
-        
+
     </section>
 
-     <!-- <div v-for="pok in this.store.pokemon" class="card">
+    <!-- <div v-for="pok in this.store.pokemon" class="card">
             //     <ul>
             //         <li>{{ pok.name }}</li>
             //         <li> {{ pok.type }}</li>
@@ -58,14 +58,13 @@ import CardShow from './CardShow.vue';
 </template>
 
 <style lang="scss" scoped>
-
-.card-default{
+.card-default {
     border: 2px solid black;
     border-radius: 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
 }
 </style>

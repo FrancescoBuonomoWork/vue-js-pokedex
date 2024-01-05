@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios'
 import { store } from '../store'
 
 export default {
@@ -38,6 +39,7 @@ export default {
         // },
         selectReg(){
             this.$emit('setRegion',this.store.selectedRegion)
+            
         }
 
 
@@ -65,6 +67,7 @@ export default {
                     <option value="5">Quinta gen</option> -->
                     <!-- </select> -->
                     <select @mouseleave="selectReg" v-model="store.selectedRegion" @change="filterPokemonByRegion">
+                        <option value="Tutti">Tutti</option>
                         <option value="Kanto">Kanto</option>
                         <option value="Johto">Johto</option>
                         <option value="Hoenn">Hoenn</option>
